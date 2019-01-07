@@ -28,8 +28,8 @@ public class DriveBase extends Subsystem {
   private DifferentialDrive robotDrive = new DifferentialDrive(leftMotor1, rightMotor2);
 
   public DriveBase() {
-    rightMotor1.setInverted(true);
-    rightMotor2.setInverted(true);
+    rightMotor1.setInverted(false);
+    rightMotor2.setInverted(false);
     leftMotor2.set(ControlMode.Follower, 2);
     rightMotor2.set(ControlMode.Follower, 4);
   }

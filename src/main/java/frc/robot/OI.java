@@ -13,7 +13,6 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.ElevateUp;
 import frc.robot.commands.ElevatorDown;
 import frc.robot.commands.ElevatorStop;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.CameraSwitch;
 
 
@@ -29,11 +28,6 @@ public class OI {
 
   
 
-    public OI(){
-    camera1Button.whenPressed(new CameraSwitch());
-    //camera2Button.whenPressed(new CameraSwitch(false));
-    
-    }
   //// CREATING BUTTONS
   // One type of button is a joystick button which is any button on a
   //// joystick.
@@ -68,6 +62,7 @@ public class OI {
   Button button11 = new JoystickButton(stick, 11);
 
   public OI() {
+    camera1Button.whenPressed(new CameraSwitch());
     button10.whenPressed(new ElevatorDown());
     button10.whenReleased(new ElevatorStop());
     button11.whenPressed(new ElevateUp());

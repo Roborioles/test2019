@@ -7,6 +7,10 @@
 
 package frc.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.cscore.VideoSink;
+import edu.wpi.cscore.VideoSource;
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -22,6 +26,8 @@ import frc.robot.subsystems.DriveBase;;
  * creating this project, you must also update the build.gradle file in the
  * project.
  */
+
+
 public class Robot extends TimedRobot {
   public static DriveBase m_driveBase = new DriveBase();
   public static OI m_oi;
@@ -33,12 +39,23 @@ public class Robot extends TimedRobot {
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
    */
+
+  public static UsbCamera camera1, camera2;
+  public static VideoSink server;
+  
   @Override
   public void robotInit() {
     m_oi = new OI();
     m_chooser.setDefaultOption("Default Auto", new Drive());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
+
+        camera1 = CameraServer.getInstance().startAutomaticCapture(0);
+        camera2 = CameraServer.getInstance().startAutomaticCapture(1);
+        server = CameraServer.getInstance().getServer();
+
+        camera1.setConnectionStrategy(VideoSource.ConnectionStrategy.kKeepOpen);
+        camera2.setConnectionStrategy(VideoSource.ConnectionStrategy.kKeepOpen);
   }
 
   /**

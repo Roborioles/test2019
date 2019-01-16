@@ -28,7 +28,7 @@ public class Drive extends Command {
   @Override
   protected void execute() {
     double speed = Robot.m_oi.getStick().getY() * -1.0;
-    double rotation = Robot.m_oi.getStick().getX() * -1.0;
+    double rotation = Robot.m_oi.getStick().getX();
     Robot.m_driveBase.DriveWithJoysticks(speed, rotation);
   }
 

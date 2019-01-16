@@ -17,7 +17,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.Drive;
-import frc.robot.subsystems.DriveBase;;
+import frc.robot.subsystems.DriveBase;
+import frc.robot.subsystems.Elevator;;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -31,6 +32,7 @@ import frc.robot.subsystems.DriveBase;;
 public class Robot extends TimedRobot {
   public static DriveBase m_driveBase = new DriveBase();
   public static OI m_oi;
+  public static Elevator m_elevator = new Elevator();
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();

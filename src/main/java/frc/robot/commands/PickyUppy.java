@@ -25,8 +25,13 @@ public class PickyUppy extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_pickup.Inhale(1);
+    if(Robot.m_oi.getStick().getRawButton(4)==true)
+        Robot.m_pickup.Inhale(1);
 
+    else if (Robot.m_oi.getStick().getRawButton(5)==true)
+      Robot.m_pickup.Inhale(3);
+    else
+      Robot.m_pickup.Inhale(2);
   }
 
   // Make this return true when this Command no longer needs to run execute()

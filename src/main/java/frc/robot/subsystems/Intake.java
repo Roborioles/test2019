@@ -11,6 +11,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.commands.PickyUppy;
 
 
 
@@ -22,18 +23,18 @@ public class Intake extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  private Spark intakemotor = new Spark(1);
+  private Spark intakemotor = new Spark(2);
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    
+    setDefaultCommand(new PickyUppy());
   }
 
   public void Inhale(int StopOrNo){
     if (StopOrNo==1){
-      intakemotor.set(.5);
+      intakemotor.set(1);
     }
  
     else if (StopOrNo == 2){
@@ -41,7 +42,7 @@ public class Intake extends Subsystem {
 
     }
     else if (StopOrNo == 3){
-      intakemotor.set(-.5);
+      intakemotor.set(-1);
 
     }
 

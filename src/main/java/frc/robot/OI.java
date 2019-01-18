@@ -7,12 +7,17 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.GamepadBase;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.ElevateUp;
 import frc.robot.commands.ElevatorDown;
+import frc.robot.commands.ElevatorSetpoint;
 import frc.robot.commands.ElevatorStop;
+import frc.robot.commands.LowCargo;
+import frc.robot.commands.LowHatch;
+import frc.robot.commands.MoveElevator;
 import frc.robot.commands.CameraSwitch;
 
 
@@ -57,9 +62,14 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   Joystick stick = new Joystick(0);
-  
   Button button10 = new JoystickButton(stick, 10);
   Button button11 = new JoystickButton(stick, 11);
+
+  Joystick gamepad = new Joystick(1);
+  Button gamepadButton1 = new JoystickButton(gamepad, 1);
+  Button gamepadButton2 = new JoystickButton(gamepad, 2);
+  Button gamepadButton3 = new JoystickButton(gamepad, 3);
+  Button gamepadButton4 = new JoystickButton(gamepad, 4);
 
   public OI() {
     camera1Button.whenPressed(new CameraSwitch());
@@ -67,11 +77,17 @@ public class OI {
     button10.whenReleased(new ElevatorStop());
     button11.whenPressed(new ElevateUp());
     button11.whenReleased(new ElevatorStop());
+    gamepadButton1.whenPressed(new ElevatorSetpoint());
+    gamepadButton3.whenPressed(new LowHatch());
+    gamepadButton4.whenPressed(new LowCargo());
   }
 
   private JoystickButton camera1Button = new JoystickButton(stick, 1);
 //	private JoystickButton camera2Button = new JoystickButton(stick, 2);
   public Joystick getStick() {
     return stick;
+  }
+  public Joystick getGamepad() {
+    return gamepad;
   }
 }

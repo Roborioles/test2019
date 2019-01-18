@@ -13,7 +13,10 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.ElevateUp;
 import frc.robot.commands.ElevatorDown;
 import frc.robot.commands.ElevatorStop;
+import frc.robot.commands.PickyStop;
+import frc.robot.commands.PickyUppy;
 import frc.robot.commands.CameraSwitch;
+import frc.robot.commands.Drop;
 
 
 
@@ -57,19 +60,24 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   Joystick stick = new Joystick(0);
-  
   Button button10 = new JoystickButton(stick, 10);
   Button button11 = new JoystickButton(stick, 11);
 
   public OI() {
     camera1Button.whenPressed(new CameraSwitch());
+    button4.whenPressed(new PickyUppy());
+    button4.whenReleased(new PickyStop());
+    button5.whenPressed(new Drop());
+    button5.whenReleased(new PickyStop());
     button10.whenPressed(new ElevatorDown());
     button10.whenReleased(new ElevatorStop());
     button11.whenPressed(new ElevateUp());
     button11.whenReleased(new ElevatorStop());
+    
   }
-
+  private JoystickButton button5 = new JoystickButton(stick, 5);
   private JoystickButton camera1Button = new JoystickButton(stick, 1);
+  private JoystickButton button4 = new JoystickButton(stick, 4);
 //	private JoystickButton camera2Button = new JoystickButton(stick, 2);
   public Joystick getStick() {
     return stick;

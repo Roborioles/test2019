@@ -7,7 +7,6 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.GamepadBase;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -17,7 +16,6 @@ import frc.robot.commands.ElevatorSetpoint;
 import frc.robot.commands.ElevatorStop;
 import frc.robot.commands.LowCargo;
 import frc.robot.commands.LowHatch;
-import frc.robot.commands.MoveElevator;
 import frc.robot.commands.CameraSwitch;
 
 

@@ -20,6 +20,7 @@ import frc.robot.commands.CameraSwitch;
 
 
 
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -79,8 +80,9 @@ public class OI {
     gamepadButton3.whenPressed(new LowHatch());
     gamepadButton4.whenPressed(new LowCargo());
   }
-
+  
   private JoystickButton camera1Button = new JoystickButton(stick, 1);
+ 
 //	private JoystickButton camera2Button = new JoystickButton(stick, 2);
   public Joystick getStick() {
     return stick;

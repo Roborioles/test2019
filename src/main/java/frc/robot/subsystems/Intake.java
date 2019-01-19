@@ -26,7 +26,7 @@ public class Intake extends Subsystem {
 
   private Spark intakemotor = new Spark(2);
   private Solenoid hatchIntake1Solenoid = new Solenoid(0, 2);
-  private Solenoid hatchIntake2Solenoid = new Solenoid(0, 3);
+  private Solenoid hatchIntake2Solenoid = new Solenoid(0, 0);
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.

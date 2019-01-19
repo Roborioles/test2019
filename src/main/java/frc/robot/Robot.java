@@ -113,6 +113,7 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.start();
     }
+    m_elevator.elevatorInit();
   }
 
   /**
@@ -132,6 +133,7 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+    m_elevator.elevatorInit();
   }
 
   /**

@@ -24,7 +24,7 @@ public class ElevatorSetpoint extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_elevator.goToRevolutions(10);
+    Robot.m_elevator.goToRevolutions(26);
   }
 
   // Make this return true when this Command no longer needs to run execute()

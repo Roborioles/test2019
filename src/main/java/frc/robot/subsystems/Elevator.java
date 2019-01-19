@@ -39,7 +39,7 @@ public class Elevator extends Subsystem {
       
     elevatorMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, kPIDLoopIdx, kTimeoutMs);
     elevatorMotor.setSensorPhase(true);
-    elevatorMotor.setSelectedSensorPosition(0);
+    
     /* set the peak and nominal outputs, 12V means full */
     elevatorMotor.configNominalOutputForward(0, kTimeoutMs);
     elevatorMotor.configNominalOutputReverse(0, kTimeoutMs);
@@ -113,5 +113,8 @@ public class Elevator extends Subsystem {
   }
   public void executeTarget() {
     elevatorMotor.set(ControlMode.Position,targetPos * 4096.0);
+  }
+  public void elevatorInit() {
+    elevatorMotor.setSelectedSensorPosition(0);
   }
 }

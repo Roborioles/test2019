@@ -74,6 +74,6 @@ public class OI {
  
 //	private JoystickButton camera2Button = new JoystickButton(stick, 2);
   public Joystick getStick() {
-    return stick;
+     return stick;
   }
 }

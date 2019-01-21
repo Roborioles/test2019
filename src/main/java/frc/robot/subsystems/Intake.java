@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 
 
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.commands.PickyUppy;
@@ -24,6 +25,8 @@ public class Intake extends Subsystem {
   // here. Call these from Commands.
 
   private Spark intakemotor = new Spark(2);
+  private Solenoid hatchIntake1Solenoid = new Solenoid(0, 2);
+  private Solenoid hatchIntake2Solenoid = new Solenoid(0, 0);
 
   @Override
   public void initDefaultCommand() {
@@ -45,9 +48,12 @@ public class Intake extends Subsystem {
       intakemotor.set(-1);
 
     }
-
   }
 
-  
-
+  public void intakePneumatics(){
+      hatchIntake1Solenoid.set(!hatchIntake1Solenoid.get());
+  }
+  public void OpenPneumatics(){
+    hatchIntake2Solenoid.set(!hatchIntake2Solenoid.get());
+  }
 }

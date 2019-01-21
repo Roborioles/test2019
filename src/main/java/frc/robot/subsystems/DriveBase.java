@@ -33,7 +33,7 @@ public class DriveBase extends Subsystem {
   private DifferentialDrive robotDrive = new DifferentialDrive(leftMotor1, rightMotor2);
   private Compressor dacompress = new Compressor(0);
   private Solenoid shiftSolenoid=new Solenoid(0,1);
-
+  
   public DriveBase() {
     rightMotor1.setInverted(false);
     rightMotor2.setInverted(false);
@@ -83,7 +83,5 @@ public void AutoShift(double upshift,double downshift){
 
 }
 
-
-  
   
 }

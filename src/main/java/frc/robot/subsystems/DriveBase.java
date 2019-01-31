@@ -31,7 +31,7 @@ public class DriveBase extends Subsystem {
   private WPI_TalonSRX rightMotor1 = new WPI_TalonSRX(4);
   private WPI_TalonSRX rightMotor2 = new WPI_TalonSRX(3);
   private DifferentialDrive robotDrive = new DifferentialDrive(leftMotor1, rightMotor2);
-  private Compressor dacompress = new Compressor(0);
+  private Compressor compressor1 = new Compressor(0);
   private Solenoid shiftSolenoid=new Solenoid(0,1);
   
   public DriveBase() {
@@ -39,7 +39,7 @@ public class DriveBase extends Subsystem {
     rightMotor2.setInverted(false);
     leftMotor2.set(ControlMode.Follower, 2);
     rightMotor2.set(ControlMode.Follower, 4);
-    dacompress.start();
+    compressor1.start();
     leftMotor1.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
     leftMotor1.setSensorPhase(false);
   }

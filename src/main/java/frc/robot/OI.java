@@ -14,6 +14,7 @@ import frc.robot.commands.ElevateUp;
 import frc.robot.commands.ElevatorDown;
 import frc.robot.commands.ElevatorStop;
 import frc.robot.commands.ExtendHatch;
+import frc.robot.commands.LightControl;
 import frc.robot.commands.OpenArm;
 import frc.robot.commands.CameraSwitch;
 
@@ -64,6 +65,8 @@ public class OI {
   Button button11 = new JoystickButton(stick, 11);
   Button button8 = new JoystickButton(stick, 8);
   Button button9 = new JoystickButton(stick, 9);
+  Joystick BigButton = new Joystick(5);
+  Button RedButton = new JoystickButton(BigButton, 1);
   public OI() {
     camera1Button.whenPressed(new CameraSwitch());
     button10.whenPressed(new ElevatorDown());
@@ -72,7 +75,7 @@ public class OI {
     button11.whenReleased(new ElevatorStop());
     button8.whenPressed(new ExtendHatch());
     button9.whenPressed(new OpenArm());
-    
+    RedButton.whenPressed(new LightControl());
   }
   
   private JoystickButton camera1Button = new JoystickButton(stick, 1);
@@ -80,5 +83,8 @@ public class OI {
 //	private JoystickButton camera2Button = new JoystickButton(stick, 2);
   public Joystick getStick() {
      return stick;
+  }
+  public Joystick getBigRedButton(){
+    return BigButton;
   }
 }
